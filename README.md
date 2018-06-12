@@ -1,0 +1,3 @@
+# eslintrc
+
+An .eslintrc.js
