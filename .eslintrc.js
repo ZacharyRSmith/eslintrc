@@ -12,7 +12,8 @@ module.exports = {
     rules: {
         'handle-callback-err': ERROR,
         'warning-comments': WARN,
-        'no-bitwise': ERROR
+        'no-bitwise': ERROR,
+        'semi': WARN
     },
     overrides: [
         {
