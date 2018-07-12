@@ -10,7 +10,7 @@ module.exports = {
         es6: true
     },
     rules: {
-        'handle-callback-err': ERROR,
+        'handle-callback-err': [ERROR, ".*(e|E)rr.*"], // this wasn't working for `function(error, blah...)` for some reason...
         'no-bitwise': ERROR,
         'no-warning-comments': WARN,
         'semi': WARN
