@@ -10,7 +10,8 @@ module.exports = {
         'handle-callback-err': [ERROR, ".*(e|E)rr.*"],
         'no-warning-comments': WARN,
         'no-bitwise': ERROR,
-        'semi': ERROR
+        'semi': ERROR,
+        'use-strict': ERROR
     },
     overrides: [
         {
