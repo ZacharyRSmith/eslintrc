@@ -6,16 +6,43 @@ const WARN = 1;
 
 module.exports = {
     extends: "eslint:recommended",
-    env: {
-        es6: true
-    },
     rules: {
-        'handle-callback-err': [ERROR, ".*(e|E)rr.*"], // this wasn't working for `function(error, blah...)` for some reason...
-        'no-bitwise': ERROR,
+        'handle-callback-err': [ERROR, ".*(e|E)rr.*"],
         'no-warning-comments': WARN,
-        'semi': WARN
+        'no-bitwise': ERROR,
+        'semi': ERROR
     },
     overrides: [
+        {
+            files: [
+                "public/**/*"
+            ],
+            env: { // TODO: better handle browser ver, either by linting or a transpiler...
+                browser: true,
+                es6: false,
+                node: false
+            }
+        },
+        {
+            // TODO: all files except public/
+            files: [
+                "modules/**/*",
+                "routes/**/*",
+                ".eslintrc.js",
+                "appssl.js",
+                "gulpfile.js",
+                "package.json"
+            ],
+            env: {
+                browser: false,
+                es6: true,
+                node: true
+            },
+            rules: {
+                'no-var': WARN,
+                'prefer-const': WARN
+            }
+        },
         {
             files: [
                 "**/*.test.js"
